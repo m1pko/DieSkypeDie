@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="DieSkypeDie" default="Project Description" basedir="."> 
+  <property name="DieSkypeDie" value="Die Skype Die!!!"/>
+  <property name="src.dir" value="src"/>
+  <property name="bin.dir" value="bin"/>
+  <property name="classes.dir" value="bin/classes"/>
+  <property name="build.dir" value="build"/>
+  <property name="jar.dir" value="build/jar"/>
+  <property name="dist.dir" value="dist" />
+  <target name="Project Description">
+    <echo>${DieSkypeDie}</echo>
+  </target>
+  <target name="Clean">
+  	<delete includeemptydirs="true">
+  	  <fileset dir="${bin.dir}" includes="**/*" />
+  	</delete>
+  	<delete file="${jar.dir}/DieSkypeDie.jar" />
+  	<delete file="${dist.dir}/mac/*" />
+  </target>
+  <target name="Compile">
+    <mkdir dir="${classes.dir}" />
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" />
+  </target>
+  <target name="Jar">
+    <jar destfile="${jar.dir}/DieSkypeDie.jar" basedir="${classes.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="com.dieskypedie.CallDieSkypeDie"/>
+      </manifest>
+    </jar>
+  </target>
+  <target name="Run" description="Execute main class">
+    <java classname="com.dieskypedie.CallDieSkypeDie">
+      <classpath>
+    	<pathelement location="${classes.dir}" />
+      </classpath>
+    </java>
+  </target>
+  <target name="Run Jar">
+    <java jar="${jar.dir}/DieSkypeDie.jar" fork="true" />
+  </target>
+  <target name="All">
+  	<antcall target="Clean" />
+  	<antcall target="Compile" />
+  	<antcall target="Jar" />
+  	<antcall target="Run" />
+  </target>
+  <taskdef name="DieSkypeDieApp" classname="com.oracle.appbundler.AppBundlerTask" classpath="lib/appbundler-1.0.jar" />
+  <target name="Get DieSkypeDie.App">
+	<DieSkypeDieApp outputdirectory="${dist.dir}/mac"
+	           name="DieSkypeDie"
+	           displayname="Die Skype Die"
+		       icon="${dist.dir}/ico/mac/DieSkypeDie.icns"
+		       shortversion="1.0"
+	           identifier="com.dieskypedie.CallDieSkypeDie"
+	           mainclassname="com.dieskypedie.CallDieSkypeDie">
+	  <classpath file="${jar.dir}/DieSkypeDie.jar" />
+	</DieSkypeDieApp>
+  </target>
+</project> 
