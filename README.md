@@ -22,38 +22,38 @@ It will work either in Mac OS or Windows, as long as you have Maven fully config
 
 ABOUT THE CODE STRUCTURE
 
-- src
-  |- main
-     |- java
-        |- com
-           |- dieskypedie
-              |- CallDieSkypeDie.java
-              |- exception
-                 |- DieSkypeDieException.java
-              |- exec
-                 |- DieSkypeDie.java
-                 |- IDieSkypeDieConstants.java
-              |- generic
-                 |- KillProcess.java
-- bin
-  |- classes
-     |- com
-- build
-  |- jar
-- dist
-  |- ico
-     |- mac
-        |- DieSkypeDie.icns
-     |- win
-        |- DieSkypeDie.ico
-  |- mac
-     |- DieSkypeDie.app
-  |- win
-     |- DieSkypeDie.exe
-- lib
-  |- appbundler-1.0.jar
-- build.xml
-- pom.xml
+	- src
+	  |- main
+	     |- java
+		|- com
+		   |- dieskypedie
+		      |- CallDieSkypeDie.java
+		      |- exception
+			 |- DieSkypeDieException.java
+		      |- exec
+			 |- DieSkypeDie.java
+			 |- IDieSkypeDieConstants.java
+		      |- generic
+			 |- KillProcess.java
+	- bin
+	  |- classes
+	     |- com
+	- build
+	  |- jar
+	- dist
+	  |- ico
+	     |- mac
+		|- DieSkypeDie.icns
+	     |- win
+		|- DieSkypeDie.ico
+	  |- mac
+	     |- DieSkypeDie.app
+	  |- win
+	     |- DieSkypeDie.exe
+	- lib
+	  |- appbundler-1.0.jar
+	- build.xml
+	- pom.xml
 
 The main method can be found inside the CallDieSkypeDie class.
 
